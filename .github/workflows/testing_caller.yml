@@ -1,0 +1,17 @@
+on:
+  worflow_dispatch:
+    
+
+
+  
+jobs:
+
+  testing:
+    environment: "${{ github.ref_name }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
+
+  test_call:
+    uses: ./.github/workflow/test_call.yml
+ 
