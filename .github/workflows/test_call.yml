@@ -1,0 +1,9 @@
+on:
+  workflow_call:
+
+jobs:
+  test_call:
+    environment: "${{ github.ref_name }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
