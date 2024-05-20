@@ -1,13 +1,16 @@
 on:
   workflow_dispatch:
-    
+    inputs:
+      environment:
+        type: string
+        description: enter env
 
 
   
 jobs:
 
   testing:
-    environment: "${{ github.ref_name }}"
+    environment: "${{ inputs.environment }}"
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
