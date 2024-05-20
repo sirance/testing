@@ -1,12 +1,12 @@
 on:
   workflow_call:
-    inputs:
-      environment:
-        type: string
-        description: enter env
+    # inputs:
+    #   environment:
+    #     type: string
+    #     description: enter env
 jobs:
   test_call:
-    environment: "${{ inputs.environment }}"
+    environment: "${{ github.ref_name }}"
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ vars.help }}
