@@ -1,22 +1,22 @@
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: string
-        description: enter env
+    # inputs:
+    #   environment:
+    #     type: string
+    #     description: enter env
 
 
   
 jobs:
 
   testing:
-    environment: "${{ inputs.environment }}"
+    environment: "${{ github.ref_name }}"
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
 
   test_call:
     uses: ./.github/workflows/test_call.yml
-    with:
-      environment: "${{ inputs.environment }}"
+    # with:
+    #   environment: "${{ inputs.environment }}"
  
