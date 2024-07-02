@@ -22,16 +22,17 @@ jobs:
           fetch-depth: 0
       - name: git 1
         run: |
-          sleep 60
+          sleep 30
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git config push.autoSetupRemote
           #   git config pull.ff only 
           echo ${{ inputs.string}} >> ${{ inputs.string }}
           git checkout -b ${GITHUB_RUN_ID}
           git add ${{ inputs.string }}
           git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
           git push
-          git checkout ${{ github.ref_name }}
+          git checkout main
           git pull
           git merge
           git push
