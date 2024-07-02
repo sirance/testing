@@ -33,7 +33,7 @@ jobs:
           git push --set-upstream origin ${GITHUB_RUN_ID}
           git checkout main
           git pull
-          git merge
+          git merge ${GITHUB_RUN_ID}
           git push
 
 
