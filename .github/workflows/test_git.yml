@@ -1,0 +1,46 @@
+name: Git test
+on:  
+  workflow_dispatch:
+    inputs:
+      string:
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+
+
+  git:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: git 1
+        run: |
+          sleep 60
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          echo ${{ inputs.string}} >> ${{ inputs.string }}
+          git add ${{ inputs.string }}
+          git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
+
+          git push
+
+      - name: sleep
+        run: |
+          sleep 300
+
+      - name: git 2
+        run: |
+          sleep 60
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          echo ${{ inputs.string}} >> ${{ inputs.string }}
+          git add ${{ inputs.string }}
+          git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
+
+          git push
