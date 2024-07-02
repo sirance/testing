@@ -28,7 +28,7 @@ jobs:
           echo ${{ inputs.string}} >> ${{ inputs.string }}
           git add ${{ inputs.string }}
           git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
-          git fetch origin
+          git pull
           git push
 
       - name: sleep
@@ -43,5 +43,5 @@ jobs:
           echo ${{ inputs.string}} >> ${{ inputs.string }}
           git add ${{ inputs.string }}
           git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
-          git fetch origin
+          git pull
           git push
