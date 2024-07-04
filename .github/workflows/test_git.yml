@@ -43,8 +43,6 @@ jobs:
           git push
           trap - ERR
 
-
-
           # git checkout -b ${GITHUB_RUN_ID}
           # git add ${{ inputs.string }}
           # git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
