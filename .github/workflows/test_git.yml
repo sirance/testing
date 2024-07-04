@@ -38,8 +38,11 @@ jobs:
           echo ${{ inputs.string}} >> ${{ inputs.string }}
           git add ${{ inputs.string }}
           git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
-          trap retry_push - ERR
+
+          trap retry_push ERR
+
           git push
+          
           trap - ERR
 
           # git checkout -b ${GITHUB_RUN_ID}
