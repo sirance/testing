@@ -29,7 +29,7 @@ jobs:
             sleep $length
             git remote prune origin
             git fetch --all
-            git pull --ff-only
+            git merge --no-ff
             git push
           }
 
