@@ -23,12 +23,13 @@ jobs:
       - name: git 1
         run: |
 
-          function retry_push()
+          function retry_push() {
             echo "::Warning::Git push failed, retrying"
             length=`python -S -c "import random; print(random.randint(10,30))"`
             sleep $length
             git remote prune origin
             git push
+          }
 
           sleep 30
           git config user.name github-actions
