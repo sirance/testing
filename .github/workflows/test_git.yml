@@ -28,6 +28,8 @@ jobs:
             length=`python -S -c "import random; print(random.randint(10,30))"`
             sleep $length
             git remote prune origin
+            git fetch --all
+            git pull
             git push
           }
 
@@ -42,7 +44,7 @@ jobs:
           trap retry_push ERR
 
           git push
-          
+
           trap - ERR
 
           # git checkout -b ${GITHUB_RUN_ID}
