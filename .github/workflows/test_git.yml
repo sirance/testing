@@ -37,8 +37,6 @@ jobs:
           echo ${{ inputs.string}} >> ${{ inputs.string }}
           git add ${{ inputs.string }}
           git commit -m "${{ inputs.string }} - ${GITHUB_RUN_ID}"
-          touch .git/refs/heads/filerefbranch
-          mkdir .git/refs/heads/dirrefbranch
           trap retry_push - ERR
           git push
           trap - ERR
