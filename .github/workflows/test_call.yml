@@ -9,4 +9,6 @@ jobs:
     environment: "${{ github.ref_name }}"
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ vars.help }}
+      - run: |
+         echo HELP: ${{ vars.HELP }}
+         echo ONLY_MAIN: ${{ vars.ONLY_MAIN}}
