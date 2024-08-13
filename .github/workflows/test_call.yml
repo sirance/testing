@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-         echo HELP: ${{ vars.HELP }}
-         echo ONLY_MAIN: ${{ vars.ONLY_MAIN}}
+         echo "HELP: ${{ vars.HELP }}"
+         echo "ONLY_MAIN: ${{ vars.ONLY_MAIN }}"
